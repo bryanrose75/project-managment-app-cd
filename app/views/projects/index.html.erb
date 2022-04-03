@@ -1,0 +1,12 @@
+<h3> Project List </h3>
+
+<%= turbo_stream_from "projects" %>
+
+
+<%= turbo_frame_tag "projects_form" do %>
+    <%= render 'form', project: @project %>
+<% end %>
+
+<%= turbo_frame_tag "projects" do %>
+    <%= render @projects %>
+<% end %>

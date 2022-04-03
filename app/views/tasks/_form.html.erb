@@ -1,0 +1,12 @@
+
+<%= form_with(model: [ @task.project, task]) do |f| %>
+    <div class = "card card-body bg-light">
+        <%= f.text_area :body, class: "form-control", required: true %>
+        <div class="d-flex justify-content-between">
+
+            <%= f.select(:status, [['Todo'], ['In-Progress'], ['Completed']])%>
+            <%= f.collection_select(:user_ids, User.all, :id, :name, {}, multiple: true, size: User.all.length, class:"ms-2")%>
+        </div>
+        <%= f.submit %>
+    </div>
+<% end %>
